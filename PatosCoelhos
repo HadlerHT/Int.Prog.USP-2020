@@ -1,0 +1,60 @@
+/*
+ *	By TEMPESTA H.H. 2020
+ *
+ *	USP São Carlos - Introdução a Programação para Engenharia Elétrica
+ *
+ *	Description: Calcular quantidade de patos e coelhos num cercado	
+ *
+ */
+ 
+#include <stdio.h>
+
+int main (void) {
+	
+	int head, paw, duck, rabbit;
+	bool coherent;
+	
+	printf("Patos e Coelhos\n\n");	
+	
+	do {
+		
+		coherent = true;
+		
+		printf("Digite o numero de cabecas: ");
+		scanf("%d", &head);
+		
+		printf("Digite o numero de patas: ");
+		scanf("%d", &paw);
+		
+		duck = ((4 * head) - paw) / 2;
+		rabbit = (paw - (2 * head)) / 2;
+		
+		if(paw % 2) {	//Numero impar de patas n
+			coherent = false;	
+			printf(" -Erro: Numero de patas deve ser um numero par.\n");		
+		}
+		
+		if(head > paw) {	//Numero de cabecas maior que numero de patas	
+			coherent = false;	
+			printf(" -Erro: Numero de cabecas deve ser menor que o numero de patas.\n");		
+		}
+		
+		if((duck < 0 || rabbit < 0) && coherent) {	//Dados coerentes mas combinacao impossivel	
+			coherent = false;	
+			printf(" -Erro: Combinacao Impossivel.\n");		
+		}
+		
+		printf("\n");
+		
+	} 
+	while (!coherent); //Repetir a aquisição de dados enquanto não forem coerentes
+	
+	printf("\nNo cercado existe%s%d pato%se %d coelho%s\n\n", 
+		duck == 1 ? " " : "m ", 
+		duck, 
+		duck == 1 ? " " : "s ", 
+		rabbit, 
+		rabbit == 1 ? "." : "s."); 
+	
+	return 0;
+} 
