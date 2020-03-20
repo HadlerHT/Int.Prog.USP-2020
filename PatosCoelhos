@@ -29,7 +29,7 @@ int main (void) {
 		duck = ((4 * head) - paw) / 2;
 		rabbit = (paw - (2 * head)) / 2;
 		
-		if(paw % 2) {	//Numero impar de patas n
+		if(paw % 2) {	//Numero impar de patas
 			coherent = false;	
 			printf(" -Erro: Numero de patas deve ser um numero par.\n");		
 		}
