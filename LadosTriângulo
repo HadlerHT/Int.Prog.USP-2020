@@ -1,0 +1,58 @@
+/*
+ *	By TEMPESTA H.H. 2020
+ *
+ *	USP São Carlos - Introdução a Programação para Engenharia Elétrica
+ *
+ *	Description: Classificação de triangulos	
+ *
+ */
+ 
+#include <stdio.h>
+
+int main (void) {
+	
+	float sideA, sideB, sideC;
+	bool coherent;
+	
+	printf("CLASSIFICACAO DE TRIANGULOS\n\n");
+	
+	do {
+	
+		coherent = true;
+		
+		printf("Digite o comprimento do primeiro lado: ");
+		scanf("%f", &sideA);
+		
+		printf("Digite o comprimento do segundo primeiro lado: ");
+		scanf("%f", &sideB);
+		
+		printf("Digite o comprimento do terceiro lado: ");
+		scanf("%f", &sideC);
+			
+		if (sideA < 0 || sideB < 0 || sideC < 0) {	//Lado(s) negativo(s)
+			coherent = false;
+			printf("Erro: Dados de entrada invalidos\n");
+		}
+		
+		else if (sideA == 0 || sideB == 0 || sideC == 0) {	//Lado(s) nulo(s)
+			coherent = false;
+			printf("Erro: Nao e um triangulo\n");
+		}
+		
+		printf("\n\n");
+		
+	}
+	while (!coherent);	//Aquisição de dados ate que sejam coerentes
+				
+				
+	if (sideA == sideB && sideB == sideC) //Todos os lados iguais
+		printf("Triangulo Equilatero");
+		
+	else if (sideA != sideB && sideB != sideC && sideC != sideA) //Todos os lados diferentes
+		printf("Triangulo Escaleno");
+		
+	else 
+		printf("Triangulo Isoceles"); //Um par de lados iguais
+			
+	return 0;
+} 
